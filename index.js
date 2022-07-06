@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 // CORS
 app.use(cors());
 
+// Routes
 app.use("/contacts", contactRoutes);
 
 // Error handling

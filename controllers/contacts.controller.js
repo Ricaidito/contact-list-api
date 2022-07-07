@@ -90,7 +90,7 @@ export default {
   getContactById,
   addContact,
   getContactsForUser,
-  updateContacts: updateContact,
+  updateContact,
   deleteContactById,
   deleteAllContactsForUser,
 };

@@ -12,7 +12,7 @@ router.get("/get-contacts/:userId", contactsController.getContactsForUser);
 router.post("/", contactsController.addContact);
 
 // PUT routes
-router.put("/:id", contactsController.updateContacts);
+router.put("/:id", contactsController.updateContact);
 
 // DELETE routes
 router.delete("/:id", contactsController.deleteContactById);

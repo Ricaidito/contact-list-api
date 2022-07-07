@@ -42,11 +42,11 @@ password: String;
 
 **- Crear una cuenta**
 
-`POST http://localhost:8000/users`
+`POST /users`
 
 **- Hacer login**
 
-`POST http://localhost:8000/users`
+`POST /users/login`
 
 ### Contacts
 
@@ -61,28 +61,28 @@ phoneNumber: String;
 
 **- Fetch de todos los contactos**
 
-`GET http://localhost:8000/contacts`
+`GET /contacts`
 
 **- Fetch de un contacto por id**
 
-`GET http://localhost:8000/contacts/{id}`
+`GET /contacts/{id}`
 
 **- Fetch de todos los contactos de un usuario**
 
-`GET http://localhost:8000/contacts/get-contacts/{userId}`
+`GET /contacts/get-contacts/{userId}`
 
 **- Crear un contacto**
 
-`POST http://localhost:8000/contacts`
+`POST /contacts`
 
 **- Actualizar un contacto**
 
-`PUT http://localhost:8000/contacts/{id}`
+`PUT /contacts/{id}`
 
 **- Eliminar un contacto**
 
-`DELETE http://localhost:8000/contacts/{id}`
+`DELETE /contacts/{id}`
 
 **- Eliminar todos los contactos de un usuario**
 
-`DELETE http://localhost:8000/contacts/delete-contacts/{userId}`
+`DELETE /contacts/delete-contacts/{userId}`

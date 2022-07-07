@@ -1,7 +1,7 @@
 {
   "name": "contact-list-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API to manage a contact list system",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
     "mongoose",
     "contacts"
   ],
-  "author": "",
+  "author": "Ricaidito",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",

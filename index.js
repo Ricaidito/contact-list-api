@@ -31,5 +31,5 @@ app.use(errorHandler.routeNotFoundHandler);
 app.use(errorHandler.generalErrorHandler);
 
 app.listen(port, () => {
-  console.log(`Server listening on http://localhost:${port}`);
+  console.log(`API listening on http://localhost:${port}`);
 });

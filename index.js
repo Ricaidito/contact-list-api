@@ -5,8 +5,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import "dotenv/config";
 import errorHandler from "./config/errorhandler.js";
-import contactRoutes from "./routes/contact.routes.js";
-import usersRoutes from "./routes/user.routes.js";
+import contactRoutes from "./routes/contacts.routes.js";
+import usersRoutes from "./routes/users.routes.js";
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -24,7 +24,7 @@ app.use(cors());
 
 // Routes
 app.use("/contacts", contactRoutes);
-app.use("/users",usersRoutes);
+app.use("/users", usersRoutes);
 
 // Error handling
 app.use(errorHandler.routeNotFoundHandler);

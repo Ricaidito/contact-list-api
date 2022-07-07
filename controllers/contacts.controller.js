@@ -10,11 +10,11 @@ const getAllContacts = (req, res) => {
 
 // Get a contact by ID
 const getContactById = (req, res) => {
-  const id = req.params.contactId;
+  const id = req.params.id;
   Contact.findById(id)
     .then(contact => {
       if (contact) res.status(200).json(contact);
-      else res.status(404).json({ message: "Not found!" });
+      else res.status(404).json({ error: `Contact with id ${id} not found` });
     })
     .catch(err => res.status(500).json({ error: err }));
 };
@@ -43,9 +43,12 @@ const addContact = (req, res) => {
     .catch(err => res.status(500).json({ error: err }));
 };
 
-// Update a contacts
-const updateContacts = (req, res) => {
-  const id = req.params.contactId;
+// Update a contact
+const updateContact = async (req, res) => {
+  const id = req.params.id;
+  const contactToUpdate = await Contact.findById(id);
+  if (!contactToUpdate)
+    return res.status(404).json({ error: `Contact with id ${id} not found` });
   Contact.updateOne(
     { _id: id },
     {
@@ -57,22 +60,28 @@ const updateContacts = (req, res) => {
       },
     }
   )
-    .then(result => res.status(201).json(result))
+    .then(() => res.status(200).json({ message: `Updated contact ${id}` }))
     .catch(err => res.status(500).json({ error: err }));
 };
 
 // Delete a contact by id
-const deleteContactById = (req, res) => {
-  const id = req.params.contactId;
+const deleteContactById = async (req, res) => {
+  const id = req.params.id;
+  const contactToDelete = await Contact.findById(id);
+  if (!contactToDelete)
+    return res.status(404).json({ error: `Contact with id ${id} not found` });
   Contact.deleteOne({ _id: id })
-    .then(result => res.status(200).json(result))
+    .then(() => res.status(200).json({ message: `Deleted contact ${id}` }))
     .catch(err => res.status(500).json({ error: err }));
 };
 
 // Delete all contacts
-const deleteAllContacts = (req, res) => {
-  Contact.deleteMany({})
-    .then(result => res.status(200).json(result))
+const deleteAllContactsForUser = (req, res) => {
+  const id = req.params.userId;
+  Contact.deleteMany({ userId: id })
+    .then(() =>
+      res.status(200).json({ message: `Deleted all contacts for user ${id}` })
+    )
     .catch(err => res.status(500).json({ error: err }));
 };
 
@@ -80,8 +89,8 @@ export default {
   getAllContacts,
   getContactById,
   addContact,
-  getContactForUser: getContactsForUser,
-  updateContacts,
+  getContactsForUser,
+  updateContacts: updateContact,
   deleteContactById,
-  deleteAllContacts,
+  deleteAllContactsForUser,
 };

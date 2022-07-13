@@ -2,7 +2,7 @@
 
 ## Sobre el API
 
-Esta API fue creada para servir un SPA con capacidades para manejar una agenda de contactos y usuarios.
+Esta API fue creada para servir un [SPA](https://github.com/Ricaidito/contact-list-client) con capacidades para manejar una agenda de contactos y usuarios.
 
 Las tecnologías y dependencias utilizadas fueron:
 
@@ -86,3 +86,9 @@ phoneNumber: String;
 **- Eliminar todos los contactos de un usuario**
 
 `DELETE /contacts/delete-contacts/{userId}`
+
+## Preview
+
+### API
+
+![api](./docs/api_demo.png)
